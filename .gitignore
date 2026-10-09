@@ -1,0 +1,19 @@
+# Python
+
+**pycache**/
+*.py[cod]
+.venv/
+venv/
+
+# Secrets
+
+.env
+.env.*
+
+# Local database
+
+*.db
+
+# Editors
+
+.vscode/

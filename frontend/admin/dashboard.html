@@ -1,0 +1,155 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard | DevPortfolio</title>
+    <link rel="stylesheet" href="../css/style.css">
+
+    <style>
+        .dashboard-page {
+            min-height: 100vh;
+            padding: 40px 6%;
+            color: #2B2540;
+        }
+
+        .dashboard-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 16px;
+            margin-bottom: 28px;
+        }
+
+        .dashboard-header h1 {
+            margin-bottom: 6px;
+        }
+
+        .dashboard-header p {
+            color: #4B3390;
+        }
+
+        .dashboard-actions {
+            display: flex;
+            gap: 12px;
+        }
+
+        .dashboard-actions button {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 10px;
+            background: #6C4AB6;
+            color: white;
+            font: inherit;
+            cursor: pointer;
+        }
+
+        .dashboard-actions .secondary-button {
+            background: #4B3390;
+        }
+
+        .dashboard-summary,
+        .messages-panel {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(108, 74, 182, 0.2);
+            border-radius: 18px;
+            padding: 24px;
+            margin-bottom: 24px;
+            box-shadow: 0 12px 35px rgba(43, 37, 64, 0.08);
+        }
+
+        .summary-label {
+            color: #4B3390;
+            margin-bottom: 8px;
+        }
+
+        #message-count {
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .messages-list {
+            display: grid;
+            gap: 16px;
+            margin-top: 20px;
+        }
+
+        .message-card {
+            border: 1px solid #e1d9ef;
+            border-radius: 12px;
+            padding: 20px;
+            overflow-wrap: anywhere;
+        }
+
+        .message-card h3 {
+            margin-bottom: 8px;
+        }
+
+        .message-meta {
+            color: #4B3390;
+            font-size: 0.9rem;
+            margin-bottom: 12px;
+        }
+
+        .message-body {
+            white-space: pre-wrap;
+            line-height: 1.6;
+        }
+
+        .dashboard-status {
+            color: #4B3390;
+            margin-top: 16px;
+        }
+
+        @media (max-width: 600px) {
+            .dashboard-page {
+                padding: 24px 16px;
+            }
+
+            .dashboard-header {
+                align-items: flex-start;
+            }
+
+            .dashboard-actions {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="dashboard-page">
+        <header class="dashboard-header">
+            <div>
+                <h1>Admin Dashboard</h1>
+                <p>Manage messages sent through your portfolio.</p>
+            </div>
+
+            <div class="dashboard-actions">
+                <button id="refresh-button" type="button">Refresh</button>
+                <button id="logout-button" class="secondary-button" type="button">
+                    Logout
+                </button>
+            </div>
+        </header>
+
+        <section class="dashboard-summary">
+            <p class="summary-label">Total Contact Messages</p>
+            <p id="message-count">—</p>
+        </section>
+
+        <section class="messages-panel">
+            <h2>Contact Messages</h2>
+            <p id="dashboard-status" class="dashboard-status"
+               role="status" aria-live="polite">
+                Loading messages...
+            </p>
+            <div id="messages-list" class="messages-list"></div>
+        </section>
+    </main>
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
