@@ -1,6 +1,7 @@
 const menuToggle = document.getElementById("menu-toggle");
 const navLinks = document.getElementById("nav-links");
 
+if (menuToggle && navLinks) {
 menuToggle.addEventListener("click", () => {
 const isOpen = navLinks.classList.toggle("open");
 menuToggle.setAttribute("aria-expanded", String(isOpen));
@@ -12,8 +13,10 @@ navLinks.classList.remove("open");
 menuToggle.setAttribute("aria-expanded", "false");
 });
 });
+}
 
-document.getElementById("year").textContent = new Date().getFullYear();
+const yearElement = document.getElementById("year");
+if (yearElement) yearElement.textContent = new Date().getFullYear();
 
 const filterButtons = document.querySelectorAll(".filter-btn");
 const projectCards = document.querySelectorAll(".project-card");
