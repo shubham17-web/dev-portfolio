@@ -1699,3 +1699,180 @@ footer {
 #certificates .certificate-pdf-preview {
   color: #f8f7fc;
 }
+
+/* Project cards with screenshot previews */
+.project-card-featured {
+  overflow: hidden;
+}
+
+.project-card-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(120px, 36%);
+  align-items: center;
+  gap: 18px;
+  padding: 20px;
+}
+
+.project-card-featured .project-body {
+  min-width: 0;
+  padding: 0;
+}
+
+.project-card-featured .project-body h3 {
+  margin-top: 0;
+}
+
+.project-screenshot {
+  display: block;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  object-position: top center;
+  border-radius: 10px;
+  border: 1px solid rgba(75, 51, 144, 0.18);
+  background: #F7F3EA;
+}
+
+.project-screenshot:hover {
+  transform: scale(1.02);
+  transition: transform 0.2s ease;
+}
+
+@media (max-width: 600px) {
+  .project-card-layout {
+    grid-template-columns: 1fr;
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .project-screenshot {
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+  }
+}
+
+
+/* ========================================
+   PROJECT SECTION — RESPONSIVE CARD FIX
+   Keep screenshots above content so the
+   three-column layout has enough room.
+======================================== */
+#projects .projects-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: stretch;
+  gap: 22px;
+}
+
+#projects .project-card {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  height: 100%;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 16px;
+  background: rgba(17, 24, 39, 0.72);
+  transition: transform 0.22s ease, border-color 0.22s ease,
+    box-shadow 0.22s ease;
+}
+
+#projects .project-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(167, 139, 250, 0.65);
+  box-shadow: 0 14px 32px rgba(0, 0, 0, 0.22);
+}
+
+#projects .project-card-layout {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: stretch;
+  flex: 1;
+  gap: 0;
+  padding: 0;
+}
+
+#projects .project-card-featured .project-body,
+#projects .project-card:not(.project-card-featured) .project-body {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  padding: 20px;
+}
+
+#projects .project-screenshot {
+  display: block;
+  width: 100%;
+  height: 190px;
+  aspect-ratio: auto;
+  object-fit: cover;
+  object-position: top center;
+  border: 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 0;
+  background: #e8edf4;
+  transition: transform 0.25s ease;
+}
+
+#projects .project-card:hover .project-screenshot {
+  transform: scale(1.015);
+}
+
+#projects .project-body h3 {
+  color: #fff;
+  font-size: 17px;
+  line-height: 1.4;
+  margin-bottom: 10px;
+}
+
+#projects .project-body > p {
+  flex: 1;
+  min-height: 72px;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 13px;
+  line-height: 1.65;
+}
+
+#projects .tech-tags {
+  margin: 16px 0;
+}
+
+#projects .project-actions {
+  margin-top: auto;
+}
+
+#projects .project-actions .button {
+  min-width: 0;
+}
+
+@media (max-width: 900px) {
+  #projects .projects-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 580px) {
+  #projects .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+  }
+
+  #projects .project-screenshot {
+    height: 210px;
+  }
+
+  #projects .project-body > p {
+    min-height: 0;
+  }
+}
+
+#projects .project-screenshot {
+  display: block;
+  width: 100%;
+  height: 190px;
+  max-width: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #e8edf4;
+}
