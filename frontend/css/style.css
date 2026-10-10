@@ -1185,38 +1185,264 @@ footer {
     }
 }
 
-/* Profile Photo */
-.profile-photo {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 280px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: inherit;
-}
-
+/* ========================================
+   PROFILE PHOTO — CONSOLIDATED STYLES
+======================================== */
 .profile-card {
-  overflow: hidden;
-}
-
-
-/* Profile Photo Fix */
-.profile-card {
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-  min-height: 280px;
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    min-height: 280px;
 }
 
 .profile-photo {
-  display: block;
-  width: 100%;
-  height: 100%;
-  min-height: 280px;
-  object-fit: cover;
-  object-position: center;
-  border-radius: inherit;
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    object-fit: cover;
+    object-position: center;
+    border-radius: inherit;
+}
+
+/* ========================================
+   HERO PROFILE — REDUCE PHOTO OVERLAP
+======================================== */
+.hero-visual {
+    isolation: isolate;
+}
+
+.profile-card {
+    z-index: 1;
+    transform: translateX(-22px);
+}
+
+.code-card {
+    z-index: 2;
+    top: 18px;
+    right: -8px;
+    max-width: 225px;
+}
+
+/* ========================================
+   CONTACT FORM — FLAT SEND MESSAGE BUTTON
+======================================== */
+.contact-form button {
+    align-self: flex-start;
+    transform: none;
+    box-shadow: none;
+    filter: none;
+}
+
+.contact-form button:hover,
+.contact-form button:focus-visible,
+.contact-form button:active {
+    transform: none;
+    box-shadow: none;
+    filter: none;
+}
+
+.contact-form button:focus-visible {
+    outline: 2px solid #D8C8FF;
+    outline-offset: 3px;
+}
+
+/* Tablet adjustments */
+@media (max-width: 850px) {
+    .profile-card {
+        transform: translateX(-12px);
+    }
+
+    .code-card {
+        right: 0;
+        max-width: 205px;
+        padding: 12px;
+        font-size: 10px;
+    }
+}
+
+/* Mobile adjustments */
+@media (max-width: 650px) {
+    .profile-card {
+        transform: translateX(-8px);
+    }
+
+    .code-card {
+        top: 12px;
+        right: 0;
+        max-width: 190px;
+        padding: 10px;
+        font-size: 9px;
+    }
 }
 
 
+
+/* Hero profile layout adjustment */
+.hero-visual {
+    position: relative;
+    isolation: isolate;
+}
+
+.profile-card {
+    transform: translateX(-35px);
+    z-index: 1;
+}
+
+.code-card {
+    top: 5px;
+    right: -10px;
+    z-index: 2;
+    width: 215px;
+}
+
+/* Tablet */
+@media (max-width: 850px) {
+    .profile-card {
+        transform: translateX(-20px);
+    }
+
+    .code-card {
+        right: 0;
+        width: 195px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 650px) {
+    .hero-visual {
+        min-height: 370px;
+    }
+
+    .profile-card {
+        transform: translateX(-12px);
+    }
+
+    .code-card {
+        top: 8px;
+        right: 0;
+        width: 180px;
+        font-size: 9px;
+    }
+}
+
+
+/* Flat contact form button */
+.contact-form button {
+    appearance: none;
+    -webkit-appearance: none;
+    align-self: flex-start;
+    border: 1px solid transparent;
+    border-radius: 10px;
+    box-shadow: none;
+    outline: none;
+    transform: none;
+    filter: none;
+    transition: background-color 0.2s ease;
+}
+
+.contact-form button:hover,
+.contact-form button:focus,
+.contact-form button:active {
+    box-shadow: none;
+    transform: none;
+    filter: none;
+}
+
+.contact-form button:focus-visible {
+    outline: 2px solid #D8C8FF;
+    outline-offset: 3px;
+}
+
+
+/* Keep availability badge in front of the profile photo */
+.hero-visual {
+    position: relative;
+    isolation: isolate;
+}
+
+.availability {
+    position: absolute;
+    z-index: 5;
+    bottom: 12px;
+    left: 0;
+}
+
+/* Keep photo and code card below the availability badge */
+.profile-card {
+    z-index: 1;
+}
+
+.code-card {
+    z-index: 2;
+}
+
+
+/* FINAL MOBILE HERO LAYOUT */
+@media (max-width: 650px) {
+    .hero-visual {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+        gap: 16px;
+        width: 100%;
+        min-height: auto;
+        padding: 0 8px 58px;
+        overflow: visible;
+        isolation: isolate;
+    }
+
+    .profile-card {
+        position: relative;
+        width: min(280px, 82vw);
+        height: 340px;
+        min-height: 0;
+        flex-shrink: 0;
+        transform: none;
+        z-index: 1;
+    }
+
+    .profile-photo {
+        display: block;
+        width: 100%;
+        height: 100%;
+        min-height: 0;
+        object-fit: cover;
+        object-position: center top;
+    }
+
+    /* Put the code card BELOW the photo */
+    .code-card {
+        position: relative;
+        top: auto;
+        right: auto;
+        width: min(280px, 82vw);
+        max-width: none;
+        box-sizing: border-box;
+        padding: 14px;
+        font-size: 11px;
+        z-index: 2;
+    }
+
+    .code-card pre {
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+        font-size: 10px;
+    }
+
+    /* Keep the badge in front of the lower photo area */
+    .availability {
+        position: absolute;
+        left: 50%;
+        bottom: 0;
+        transform: translateX(-50%);
+        z-index: 5;
+        width: max-content;
+        max-width: calc(100% - 16px);
+        box-sizing: border-box;
+        padding: 10px 13px;
+        font-size: 11px;
+        white-space: nowrap;
+    }
+}
