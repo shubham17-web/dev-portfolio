@@ -76,8 +76,7 @@ a {
 
 /* Transparent glass: light tint + strong blur keeps text readable over content */
 .navbar.glass {
-  background-color: rgba(20, 24, 39, 0.32);
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  background-color: rgba(20, 24, 39, 0.28);
   backdrop-filter: blur(22px) saturate(140%);
   -webkit-backdrop-filter: blur(22px) saturate(140%);
 }
@@ -1903,5 +1902,99 @@ footer {
     background-size: cover;
     background-position: center top;
     background-repeat: no-repeat;
+  }
+}
+
+/* View all / Show less */
+.is-collapsed {
+  display: none !important;
+}
+
+.view-all-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: 28px;
+}
+
+.view-all-wrap[hidden] {
+  display: none;
+}
+
+.view-all-btn {
+  padding: 11px 28px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background-color: var(--glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  color: white;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.view-all-btn:hover {
+  background-color: var(--primary);
+  border-color: var(--primary);
+  transform: translateY(-2px);
+}
+
+/* Back to top */
+.back-to-top {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 900;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  color: white;
+  font: inherit;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  opacity: 0;
+  transform: translateY(12px);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease,
+    background-color 0.2s ease;
+}
+
+.back-to-top.show {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+
+.back-to-top:hover {
+  background-color: var(--primary);
+}
+
+.back-to-top[hidden] {
+  display: none;
+}
+
+/* Fade-in on scroll (classes are added by main.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
   }
 }

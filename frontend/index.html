@@ -14,6 +14,22 @@
       property="og:description"
       content="Portfolio of Pranab Singh — IT student focused on Python, Data Analytics, Machine Learning, and FastAPI."
     />
+    <meta name="theme-color" content="#111827" />
+    <link rel="icon" type="image/svg+xml" href="assets/images/favicon.svg" />
+
+    <!-- Link preview (LinkedIn, WhatsApp, etc.) -->
+    <!-- TODO: replace YOUR-SITE-URL with your live site address, e.g. https://username.github.io/repo -->
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:url"
+      content="https://pranab-dev-portfolio.onrender.com/"
+    />
+    <meta
+      property="og:image"
+      content="https://pranab-dev-portfolio.onrender.com/assets/images/profile.jpeg"
+    />
+    <meta name="twitter:card" content="summary_large_image" />
+
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
@@ -116,7 +132,7 @@
             <article class="education-card glass">
               <span class="education-label">B.Tech</span>
               <h4>Information Technology</h4>
-              <p>Netaji Subhas Engineering College</p>
+              <p>Netaji Subhash Engineering College</p>
             </article>
           </div>
         </div>
@@ -186,7 +202,7 @@
           <button class="filter-btn" data-filter="data">Data Analytics</button>
         </div>
 
-        <div class="projects-grid">
+        <div class="projects-grid" data-collapsible data-limit="3">
           <!-- 1. Student Performance Analytics -->
           <article
             class="project-card glass project-card-featured"
@@ -374,6 +390,11 @@
             </div>
           </article>
         </div>
+        <div class="view-all-wrap">
+          <button type="button" class="view-all-btn" data-for="projects">
+            View all projects
+          </button>
+        </div>
       </section>
 
       <!-- Certificates Section -->
@@ -387,7 +408,7 @@
           </p>
         </div>
 
-        <div class="certificates-grid">
+        <div class="certificates-grid" data-collapsible data-limit="3">
           <!-- 1. Data Analyst Bootcamp -->
           <article class="certificate-card glass">
             <a
@@ -540,6 +561,11 @@
             </div>
           </article>
         </div>
+        <div class="view-all-wrap">
+          <button type="button" class="view-all-btn" data-for="certificates">
+            View all certificates
+          </button>
+        </div>
       </section>
 
       <section class="contact-section" id="contact">
@@ -637,6 +663,16 @@
         </div>
       </section>
     </main>
+
+    <button
+      type="button"
+      class="back-to-top glass"
+      id="back-to-top"
+      aria-label="Back to top"
+      hidden
+    >
+      ↑
+    </button>
 
     <footer>
       <p>
