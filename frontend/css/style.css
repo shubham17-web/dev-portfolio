@@ -1876,3 +1876,23 @@ footer {
   object-position: center;
   background: #e8edf4;
 }
+
+/* Mobile background */
+@media (max-width: 768px) {
+  body {
+    background-image: none;
+  }
+
+  /* Fixed layer keeps the image sharp and un-stretched on long pages (and works on iOS) */
+  .background-overlay {
+    /* Same two dark layers as desktop (overlay tint + gradient) so mobile matches */
+    background-color: transparent;
+    background-image:
+      linear-gradient(rgba(10, 13, 25, 0.52), rgba(10, 13, 25, 0.52)),
+      linear-gradient(rgba(20, 16, 45, 0.48), rgba(20, 16, 45, 0.58)),
+      url("../assets/images/background-mobile.png");
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+  }
+}
